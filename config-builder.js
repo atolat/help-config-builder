@@ -55,8 +55,8 @@
 
 	    console.log("The file was saved!");
 	    client.putFile('./config.txt', 
-	    	{'Content-Type': 'text/plain'}, function(err, result) {
-	    if (200 == result.statusCode) {
+	    	{'Content-Type': 'text/plain'}, function(err, res) {
+	    if (200 == res.statusCode) {
 	     console.log('Uploaded to mazon S3');
 	      }
 	    else {
