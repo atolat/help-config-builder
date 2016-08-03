@@ -24,7 +24,7 @@ module.exports = function (app) {
 
     //API ROOT
     app.get('/', function (req, res) {
-        res.sendFile('./config-form.html');
+        res.sendfile('./config-form.html');
     });
 
     app.use(bodyParser.urlencoded({
@@ -59,7 +59,7 @@ app.post("/buildjson", function (req, res) {
 
     
     
-    res.sendFile('./config-form.html');
+    res.send('Cool!');
   
 });
 
