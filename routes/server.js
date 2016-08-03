@@ -51,8 +51,8 @@ app.post("/buildjson", function (req, res) {
     configSchema.tooltips.tooltip3_url = req.body.flow.tooltip3_url;
     configSchema.resources.pdf_resource_url = req.body.flow.pdf_resource_url;
     configSchema.resources.video_resource_url = req.body.flow.video_resource_url;
-    configSchema.shoutout.shoutout_url = req.body.flow.shoutout.shoutout_url;
-    configSchema.shoutout.period = req.body.flow.shoutout.period;
+    configSchema.shoutout.shoutout_url = req.body.flow.shoutout_url;
+    configSchema.shoutout.period = req.body.flow.period;
 
     console.log(configSchema);
     
