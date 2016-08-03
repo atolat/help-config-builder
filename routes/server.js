@@ -3,6 +3,14 @@ module.exports = function (app) {
     var _ = require('underscore');
     var bodyParser = require('body-parser');
     app.use(bodyParser.json());
+    var knox = require('knox');
+
+    //Create the S3 client
+    var client = knox.createClient({
+        key: 'AKIAJTSXS6U2YVRJ3IAQ'
+        , secret: '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'
+        , bucket: 'help-config-bucket'
+    });
 
     var configSchema = {
         tooltips : {
@@ -55,6 +63,23 @@ app.post("/buildjson", function (req, res) {
     configSchema.shoutout.period = req.body.flow.period;
 
     console.log(configSchema);
+
+    var string = JSON.stringify(configSchema);
+
+    var req = client.put('/test/obj.json', {
+        'Content-Length': Buffer.byteLength(string)
+        , 'Content-Type': 'application/json'
+        , 'x-amz-acl': 'public-read'
+    });
+    
+    req.on('response', function(res){
+        
+        if (200 == res.statusCode) {
+            console.log('saved to %s', req.url);
+        }
+    });
+    
+    req.end(string);
     
 
     

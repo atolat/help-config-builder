@@ -1,9 +1,6 @@
 //INITIAL CONFIGS...
 var PORT =process.env.PORT || 3000;
 var express = require('express');
-var prompt = require('prompt');
-var color = require('colors/safe');
-var fs = require('fs');
 var knox = require('knox');
 var app = express();
 var routes = require('./routes/server')(app);
