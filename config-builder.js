@@ -55,7 +55,6 @@ prompt.get(configSchema,function(error,result){
     console.log("The file was saved!");
     client.putFile('config.txt', 
     	{'Content-Type': 'text/plain',
-    	 'Content-Length':buff.length,
     	 'x-amz-acl':'public'
     	}, function(err, result) {
     if (200 == result.statusCode) { console.log('Uploaded to mazon S3'); }
