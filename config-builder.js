@@ -47,13 +47,13 @@ prompt.get(configSchema,function(error,result){
 	console.log(result);
 
     var str = JSON.stringify(result);
-    fs.writeFile("./temp.txt", str, function(err) {
+    fs.writeFile("./temp", str, function(err) {
     if(err) {
         return console.log(err);
     }
 
     console.log("The file was saved!");
-    client.putFile('./temp.txt', {'Content-Type': 'text/plain'}, function(err, result) {
+    client.putFile('./temp', {'Content-Type': 'text/plain'}, function(err, result) {
     if (200 == result.statusCode) { console.log('Uploaded to mazon S3'); }
     else { console.log('Failed to upload file to Amazon S3'); }
 });
