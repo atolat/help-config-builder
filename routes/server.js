@@ -19,7 +19,7 @@ module.exports = function (app) {
             shoutout_url : '',
             period : ''
         }
-    }
+    };
 
 
     //API ROOT
@@ -46,13 +46,13 @@ app.post("/buildjson", function (req, res) {
     console.log(req.body.flow.shoutout_url);
     console.log(req.body.flow.period);
 
-    configSchema.tooltips.tooltip1_url = flow.tooltip1_url;
-    configSchema.tooltips.tooltip2_url = flow.tooltip2_url;
-    configSchema.tooltips.tooltip3_url = flow.tooltip3_url;
-    configSchema.resources.pdf_resource_url = flow.resources.pdf_resource_url;
-    configSchema.resources.video_resource_url = flow.resources.video_resource_url;
-    configSchema.shoutout.shoutout_url = flow.shoutout.shoutout_url;
-    configSchema.shoutout.period = flow.shoutout.period;
+    configSchema.tooltips.tooltip1_url = req.body.flow.tooltip1_url;
+    configSchema.tooltips.tooltip2_url = req.body.flow.tooltip2_url;
+    configSchema.tooltips.tooltip3_url = req.body.flow.tooltip3_url;
+    configSchema.resources.pdf_resource_url = req.body.flow.resources.pdf_resource_url;
+    configSchema.resources.video_resource_url = req.body.flow.resources.video_resource_url;
+    configSchema.shoutout.shoutout_url = req.body.flow.shoutout.shoutout_url;
+    configSchema.shoutout.period = req.body.flow.shoutout.period;
 
     console.log(configSchema);
     
