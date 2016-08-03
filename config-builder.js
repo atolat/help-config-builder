@@ -46,7 +46,7 @@ prompt.message = '>>';
 prompt.get(configSchema,function(error,result){
 	console.log(result);
 
-    var str = JSON.stringify(result);
+    var string = JSON.stringify(result);
     fs.writeFile("./config", str, function(err) {
     if(err) {
         return console.log(err);
@@ -56,10 +56,17 @@ prompt.get(configSchema,function(error,result){
   
 });
 
-  client.putFile('./config', {'Content-Type': 'text/plain'}, function(err, result) {
-    if (200 == result.statusCode) { console.log('Uploaded to mazon S3'); }
-    else { console.log('Failed to upload file to Amazon S3'); }
+ var req = client.put('/test/obj.json', {
+    'Content-Length': Buffer.byteLength(string)
+  , 'Content-Type': 'application/json'
+  , 'x-amz-acl': 'public-read'
 });
+req.on('response', function(res){
+  if (200 == res.statusCode) {
+    console.log('saved to %s', req.url);
+  }
+});
+req.end(string);
 
 }); 
  
