@@ -1,5 +1,5 @@
 //INITIAL CONFIGS...
-var PORT =process.env.PORT || 3000;
+var PORT =process.env.PORT;
 var express = require('express');
 var prompt = require('prompt');
 var color = require('colors/safe');
