@@ -47,14 +47,14 @@ prompt.get(configSchema,function(error,result){
 	console.log(result);
 
     var string = JSON.stringify(result);
-    fs.writeFile("./config", str, function(err) {
-    if(err) {
-        return console.log(err);
-    }
+//     fs.writeFile("./config", string, function(err) {
+//     if(err) {
+//         return console.log(err);
+//     }
 
-    console.log("The file was saved!");
+//     console.log("The file was saved!");
   
-});
+// });
 
  var req = client.put('/test/obj.json', {
     'Content-Length': Buffer.byteLength(string)
