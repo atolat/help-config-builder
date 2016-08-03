@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Notification-Form</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    
+</head>
+<body>
+
+
+
+<form class="form-horizontal" method="post" action="/buildjson">
+<fieldset>
+
+<!-- Form Name -->
+<legend>"Help" Dash</legend>
+
+
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="flow[tooltip1_url]">Tooltip 1 URL</label>  
+  <div class="col-md-4">
+  <input id="flow[tooltip1_url]" name="flow[tooltip1_url]" type="text" placeholder="" class="form-control input-md">
+    
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="flow[tooltip2_url]">Tooltip 2 URL</label>  
+  <div class="col-md-4">
+  <input id="flow[tooltip2_url]" name="flow[tooltip2_url]" type="text" placeholder="" class="form-control input-md">
+    
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="flow[tooltip3_url]">Tooltip 3 URL</label>  
+  <div class="col-md-4">
+  <input id="flow[tooltip3_url]" name="flow[tooltip3_url]" type="text" placeholder="" class="form-control input-md">
+    
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="flow[pdf_resource_url]">PDF Resource URL</label>  
+  <div class="col-md-4">
+  <input id="flow[pdf_resource_url]" name="flow[pdf_resource_url]" type="text" placeholder="" class="form-control input-md">
+    
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="flow[video_resource_url]">Video Resource URL</label>  
+  <div class="col-md-4">
+  <input id="flow[video_resource_url]" name="flow[video_resource_url]" type="text" placeholder="" class="form-control input-md">
+    
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="flow[shoutout_url]">Shoutout URL</label>  
+  <div class="col-md-4">
+  <input id="flow[shoutout_url]" name="flow[shoutout_url]" type="text" placeholder="" class="form-control input-md">
+    
+  </div>
+</div>
+
+<!-- Select Basic -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="flow[period]">Shoutout Period</label>
+  <div class="col-md-4">
+    <select id="flow[period]" name="flow[period]" class="form-control">
+      <option value="1">Quarterly</option>
+      <option value="2">Monthly</option>
+      <option value="3">Weekly</option>
+      <option value="4">Daily</option>
+    </select>
+  </div>
+</div>
+
+<!-- Button -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="singlebutton"></label>
+  <div class="col-md-4">
+    <button type = "submit" value = "submit" id="singlebutton" name="singlebutton" class="btn btn-primary">Update Flow</button>
+  </div>
+</div>
+
+</fieldset>
+</form>
+
+</body>
