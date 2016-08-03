@@ -24,7 +24,7 @@ module.exports = function (app) {
 
     //API ROOT
     app.get('/', function (req, res) {
-        res.sendfile('./config-form.html');
+        res.sendFile('./config-form.html');
     });
 
     app.use(bodyParser.urlencoded({
@@ -53,11 +53,13 @@ app.post("/buildjson", function (req, res) {
     configSchema.resources.video_resource_url = flow.resources.video_resource_url;
     configSchema.shoutout.shoutout_url = flow.shoutout.shoutout_url;
     configSchema.shoutout.period = flow.shoutout.period;
+
+    console.log(configSchema);
     
 
     
     
-    res.sendfile('./config-form.html');
+    res.sendFile('./config-form.html');
   
 });
 
