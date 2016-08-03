@@ -4,6 +4,7 @@
   "description": "",
   "main": "config-builder.js",
   "scripts": {
+    "start":"node config-builder.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
