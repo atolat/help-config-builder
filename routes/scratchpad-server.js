@@ -21,7 +21,7 @@ module.exports = function (app) {
   res.on('data', function(chunk){
     console.log(chunk);
     var configSchema = JSON.parse(chunk);
-    var url = _.pick(configSchema,'tooltip1_url');
+    var url = _.pick(configSchema,'tooltips');
     console.log(url);
     
 
