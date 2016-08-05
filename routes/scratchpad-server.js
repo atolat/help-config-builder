@@ -6,6 +6,10 @@ module.exports = function (app) {
     var knox = require('knox');
     var _ = require('underscore'); 
 
+    app.use(bodyParser.urlencoded({
+        extended: true
+    }));
+
     //API ROOT
     app.get('/', function (req, res) {
         res.sendfile('./login.html');
