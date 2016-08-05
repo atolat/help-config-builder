@@ -16,8 +16,7 @@ $(document).ready(function(){
           var buckname = $('[id="bucket[name]]"').val();
           $.get("https://s3-us-west-1.amazonaws.com/help-config-bucket/test/obj.json", function(data, status){
           window.alert(data);
-          var dataStr = JSON.stringify(data);
-          $('[type="hidden"]').val(dataStr);
+          $('[type="hidden"]').val(data);
          });
           
         });
@@ -34,14 +33,14 @@ $(document).ready(function(){
 
 
 
-<!-- Text input-->
+<!--
 <div class="form-group">
   <label class="col-md-4 control-label" for="bucket[name]">Enter Your S3 Bucket Name:</label>  
   <div class="col-md-4">
   <input id="bucket[name]" name="bucket[name]" type="text" placeholder="" class="form-control input-md">
     
   </div>
-</div>
+</div> -->
 
 <!--Hidden Text input-->
 <div class="form-group">
