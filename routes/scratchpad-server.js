@@ -5,6 +5,7 @@ module.exports = function (app) {
     app.use(bodyParser.json());
     var knox = require('knox');
     var _ = require('underscore'); 
+    var globals = require('./globals');
 
     app.use(bodyParser.urlencoded({
         extended: true
@@ -37,6 +38,7 @@ module.exports = function (app) {
     var configSchema = JSON.parse(chunk);
     //Count number of tooltip urls::
     var tooltip_num = _.toArray(configSchema.tooltips).length;
+    globals.toolnum = tooltip_num;
     console.log(tooltip_num);
 
     //Count number of video resource urls::
@@ -62,10 +64,11 @@ module.exports = function (app) {
 
     }
   
-res.send(htmlHead+tooltipFieldHtml+htmlTail);
+
 
   });
 }).end();
+    res.send(globals.toolnum);
 
     
     
