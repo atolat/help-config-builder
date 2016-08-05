@@ -5,22 +5,20 @@ module.exports = function (app) {
     app.use(bodyParser.json());
     var knox = require('knox');
     var _ = require('underscore'); 
-    var globalDataSchema;
 
+    //API ROOT
+    app.get('/', function (req, res) {
+        res.sendfile('./login.html');
+    });
 
-//     //API ROOT
-//     app.get('/', function (req, res) {
-//         res.sendfile('./login.html');
-//     });
-
-//     app.post("/getbucketname", function (req, res) {
-//         var bucketname = 
-
+    app.post("/getbucketname", function (req, res) {
+        var bucketname = res.body.bucket.name;
+        console.log(bucketname);
     
     
-//     res.send('Cool!');
+    res.send('Cool!');
   
-// });
+});
 
 
     //Create the S3 client
@@ -38,28 +36,29 @@ module.exports = function (app) {
   console.log(res.headers);
   res.setEncoding('utf8');
   res.on('data', function(chunk){
-    //console.log(chunk);
-    globalDataSchema = JSON.parse(chunk);
+    console.log(chunk);
+    var configSchema = JSON.parse(chunk);
     //Count number of tooltip urls::
-    // myGLOBALobj.tooltip_num = _.toArray(configSchema.tooltips).length;
-   
+    var tooltip_num = _.toArray(configSchema.tooltips).length;
+    console.log(tooltip_num);
 
-    // //Count number of video resource urls::
-    // myGLOBALobj.video_resource_num = _.toArray(configSchema.resources.video_resources).length;
+    //Count number of video resource urls::
+    var video_resource_num = _.toArray(configSchema.resources.video_resources).length;
+    console.log(video_resource_num);
+
+    //Count number of video resource urls::
+    var pdf_resource_num = _.toArray(configSchema.resources.pdf_resources).length;
+    console.log(pdf_resource_num);
+
+
+app.post("/buildjsonform", function (req, res) {
     
 
-    // //Count number of video resource urls::
-    // vmyGLOBALobj.pdf_resource_num = _.toArray(configSchema.resources.pdf_resources).length;
-    
-
-// app.post("/buildjsonform", function (req, res) {
-    
-
     
     
-//     res.send('Cool!');
+    res.send('Cool!');
   
-// });
+});
 
   
 
@@ -67,23 +66,8 @@ module.exports = function (app) {
 }).end();
 
 
- console.log(globalDataSchema);
- //console.log(globalDataSchema);
-//Count number of tooltip urls::
-    // var tooltip_num = _.toArray(globalDataSchema.tooltips).length;
-    // console.log(tooltip_num);
-   
 
-    // //Count number of video resource urls::
-    // var video_resource_num = _.toArray(globalDataSchema.resources.video_resources).length;
-    // console.log(video_resource_num);
 
-    // //Count number of video resource urls::
-    // var pdf_resource_num = _.toArray(globalDataSchema.resources.pdf_resources).length;
-    // console.log(pdf_resource_num);
-//  console.log(myGLOBALobj.tooltip_num);
-//  console.log(myGLOBALobj.video_resource_num);
-// console.log(myGLOBALobj.pdf_resource_num);
 
     // var configSchema = {
     //     tooltips : {
