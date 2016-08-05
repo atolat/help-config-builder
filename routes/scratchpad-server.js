@@ -29,10 +29,10 @@ module.exports = function (app) {
 
 
     client.get('/test/obj.json').on('response', function(res){
-  console.log(res.statusCode);
-  console.log(res.headers);
-  res.setEncoding('utf8');
-  res.on('data', function(chunk){  
+    console.log(res.statusCode);
+    console.log(res.headers);
+    res.setEncoding('utf8');
+    res.on('data', function(chunk){  
     console.log(chunk);
     var configSchema = JSON.parse(chunk);
     //Count number of tooltip urls::
@@ -47,14 +47,29 @@ module.exports = function (app) {
     var pdf_resource_num = _.toArray(configSchema.resources.pdf_resources).length;
     console.log(pdf_resource_num);
 
+    var htmlHead = '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>Notification-Form</title><!-- Latest compiled and minified CSS --><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"></head><body><form class="form-horizontal" method="post" action="/updatejson"><fieldset><!-- Form Name --><legend>"Help" Dash</legend>';
+
+    var tooltipFieldHtml = '';
+
+    var videoFieldHtml = '<div class="form-group"><label class="col-md-4 control-label" for="flow[tooltip1_url]">Video URL</label><div class="col-md-4"><input id="flow[tooltip1_url]" name="flow[tooltip1_url]" type="text" placeholder="" class="form-control input-md"></div></div>';
+
+    var pdfFieldHtml = '<div class="form-group"><label class="col-md-4 control-label" for="flow[tooltip1_url]">PDF URL</label><div class="col-md-4"><input id="flow[tooltip1_url]" name="flow[tooltip1_url]" type="text" placeholder="" class="form-control input-md"></div></div>';
+
+    var htmlTail = '<div class="form-group"><label class="col-md-4 control-label" for="singlebutton"></label><div class="col-md-4"><button type = "submit" value = "submit" id="singlebutton" name="singlebutton" class="btn btn-primary">Update Flow</button></div></div></fieldset></form></body>';
+
+    for(i=0;i<tooltip_num;i++){
+        tooltipFieldHtml = tooltipFieldHtml + '<div class="form-group"><label class="col-md-4 control-label" for="flow[tooltip1_url]">Tooltip URL</label><div class="col-md-4"><input id="flow[tooltip1_url]" name="flow[tooltip1_url]" type="text" placeholder="" class="form-control input-md"></div></div>';
+
+    }
   
+
 
   });
 }).end();
 
     
     
-    res.send('Cool!');
+    res.send(htmlHead+tooltipFieldHtml+htmlTail);
   
 });
 
