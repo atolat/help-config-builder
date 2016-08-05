@@ -41,15 +41,15 @@ module.exports = function (app) {
     console.log(chunk);
     myGLOBALobj.configSchema = JSON.parse(chunk);
     //Count number of tooltip urls::
-    myGLOBALobj.tooltip_num = _.toArray(configSchema.tooltips).length;
+    // myGLOBALobj.tooltip_num = _.toArray(configSchema.tooltips).length;
    
 
-    //Count number of video resource urls::
-    myGLOBALobj.video_resource_num = _.toArray(configSchema.resources.video_resources).length;
+    // //Count number of video resource urls::
+    // myGLOBALobj.video_resource_num = _.toArray(configSchema.resources.video_resources).length;
     
 
-    //Count number of video resource urls::
-    vmyGLOBALobj.pdf_resource_num = _.toArray(configSchema.resources.pdf_resources).length;
+    // //Count number of video resource urls::
+    // vmyGLOBALobj.pdf_resource_num = _.toArray(configSchema.resources.pdf_resources).length;
     
 
 // app.post("/buildjsonform", function (req, res) {
@@ -68,9 +68,9 @@ module.exports = function (app) {
 
 
 console.log(myGLOBALobj.configSchema)
- console.log(myGLOBALobj.tooltip_num);
- console.log(myGLOBALobj.video_resource_num);
-console.log(myGLOBALobj.pdf_resource_num);
+//  console.log(myGLOBALobj.tooltip_num);
+//  console.log(myGLOBALobj.video_resource_num);
+// console.log(myGLOBALobj.pdf_resource_num);
 
     // var configSchema = {
     //     tooltips : {
