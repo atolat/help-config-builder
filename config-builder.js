@@ -3,7 +3,7 @@ var PORT =process.env.PORT || 3000;
 var express = require('express');
 var knox = require('knox');
 var app = express();
-var globals = require('./globals.js');
+var request = require('request');
 //var routes = require('./routes/scratchpad-server')(app);
 
  var _ = require('underscore');
@@ -50,8 +50,9 @@ app.use(allowCrossDomain);
         , bucket: bucketname
     });
 
-    var responseStr = '';
+    
     client.get('/test/obj.json').on('response', function getNums(res){
+    var responseStr = '';
     console.log(res.statusCode);
     console.log(res.headers);
     res.setEncoding('utf8');
@@ -86,17 +87,39 @@ app.use(allowCrossDomain);
 
     }
 
+    request({
+    url: 'https://help-config-builder.herokuapp.com/buildform', //URL to hit
+    qs: {from: 'blog example', time: +new Date()}, //Query string data
+    method: 'POST',
+    headers: {
+        'Content-Type': 'MyContentType',
+        'Custom-Header': 'Custom Value'
+    },
+    body: responseStr //Set the body as a string
+}, function(error, response, body){
+    if(error) {
+        console.log(error);
+    } else {
+        console.log(response.statusCode, body);
+    }
+});
+
 
   });
-return responseStr;
+
 }).end();
-    res.send(responseStr);
+
+    res.send('something');
     
 
     
     
     
   
+});
+app.post('/buildform',function(req,res){
+console.log(req);
+res.send('success');
 });
 
 
