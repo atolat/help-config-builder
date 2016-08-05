@@ -21,8 +21,8 @@ module.exports = function (app) {
   res.on('data', function(chunk){
     console.log(chunk);
     var configSchema = JSON.parse(chunk);
-    var toolarray = _.toArray(configSchema.tooltips);
-    console.log(toolarray);
+    var tooltip_num = _.toArray(configSchema.tooltips).length;
+    console.log(tooltip_num);
     
 
   });
