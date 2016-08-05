@@ -4,7 +4,7 @@ module.exports = function (app) {
     var bodyParser = require('body-parser');
     app.use(bodyParser.json());
     var knox = require('knox');
-    GLOBAL.getdata = '';
+    GLOBAL.mydata = '';
 
     //Create the S3 client
     var client = knox.createClient({
@@ -20,13 +20,13 @@ module.exports = function (app) {
   res.setEncoding('utf8');
   res.on('data', function(chunk){
     console.log(chunk);
-    getdata = chunk; 
+    mydata = chunk; 
   });
 }).end();
 
 
 
-    console.log(getdata);
+    console.log(mydata);
 
 //     var configSchema = {
 //         tooltips : {
