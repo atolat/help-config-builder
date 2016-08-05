@@ -4,6 +4,7 @@ module.exports = function (app) {
     var bodyParser = require('body-parser');
     app.use(bodyParser.json());
     var knox = require('knox');
+    var _ = require('underscore'); 
 
     //Create the S3 client
     var client = knox.createClient({
@@ -20,7 +21,9 @@ module.exports = function (app) {
   res.on('data', function(chunk){
     console.log(chunk);
     var configSchema = JSON.parse(chunk);
-    console.log(configSchema.tooltips.tooltip1_url);
+    var url = _.pick(configSchema,'tooltip1_url');
+    console.log(url);
+    
 
   });
 }).end();
