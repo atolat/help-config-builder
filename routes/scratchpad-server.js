@@ -18,9 +18,14 @@ module.exports = function (app) {
   console.log(res.headers);
   res.setEncoding('utf8');
   res.on('data', function(chunk){
-    console.log(chunk);
+    //console.log(chunk);
+    global.getdata = chunk; 
   });
 }).end();
+
+
+
+    console.log(getdata);
 
 //     var configSchema = {
 //         tooltips : {
