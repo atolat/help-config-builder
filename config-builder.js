@@ -52,6 +52,7 @@ function getSchema(){
         return schema;	
     }
 });
+        return schema;
     }
     	console.log(schema);
         res.send(getSchema());
