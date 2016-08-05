@@ -3,7 +3,7 @@ var PORT =process.env.PORT || 3000;
 var express = require('express');
 var knox = require('knox');
 var app = express();
-var globals = require('globals');
+var globals = require('./globals.js');
 var routes = require('./routes/scratchpad-server')(app);
 
 //CORS Configuration
