@@ -5,7 +5,7 @@ module.exports = function (app) {
     app.use(bodyParser.json());
     var knox = require('knox');
     var _ = require('underscore'); 
-    var globals = require('globals');
+    //var globals = require('globals');
 
     app.use(bodyParser.urlencoded({
         extended: true
