@@ -20,7 +20,7 @@ module.exports = function (app) {
   res.setEncoding('utf8');
   res.on('data', function(chunk){
     console.log(chunk);
-    var configSchema = JSON.parse(chunk);
+    var configSchema = JSON.stringify(chunk);
     var tooltip_urls = _.pick(configSchema,'tooltips');
     var num_tooltip_urls = _.size(tooltip_urls);
     console.log(num_tooltip_urls);
