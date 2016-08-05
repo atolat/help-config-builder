@@ -5,6 +5,7 @@ var knox = require('knox');
 var app = express();
 var globals = require('./globals.js');
 //var routes = require('./routes/scratchpad-server')(app);
+var myApp = {};
  var _ = require('underscore');
     var bodyParser = require('body-parser');
     app.use(bodyParser.json());
@@ -59,7 +60,7 @@ app.use(allowCrossDomain);
     var configSchema = JSON.parse(chunk);
     //Count number of tooltip urls::
     var tooltip_num = _.toArray(configSchema.tooltips).length;
-    globals.toolnum = tooltip_num;
+    myApp.toolnum = tooltip_num;
     console.log(tooltip_num);
 
     //Count number of video resource urls::
@@ -89,8 +90,8 @@ app.use(allowCrossDomain);
 
   });
 }).end();
-    res.send('globals.toolnum');
-    console.log(globals.toolnum);
+    res.send(myApp.toolnum);
+    console.log(myApp.toolnum);
 
     
     
