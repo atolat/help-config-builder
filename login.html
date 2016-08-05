@@ -16,7 +16,8 @@ $(document).ready(function(){
           var buckname = $('[id="bucket[name]]"').val();
           $.get("https://s3-us-west-1.amazonaws.com/"+buckname+"/test/obj.json", function(data, status){
           window.alert(data);
-          $('[type="hidden"]').val(data);
+          var dataStr = JSON.stringify(data);
+          $('[type="hidden"]').val(dataStr);
          });
           
         });
