@@ -60,7 +60,7 @@ app.use(allowCrossDomain);
     var configSchema = JSON.parse(chunk);
     //Count number of tooltip urls::
     var tooltip_num = _.toArray(configSchema.tooltips).length;
-    myApp.toolnum = tooltip_num;
+    //myApp.toolnum = tooltip_num;
     console.log(tooltip_num);
 
     //Count number of video resource urls::
