@@ -13,8 +13,8 @@ module.exports = function (app) {
 
     app.post("/getbucketname", function (req, res) {
         
-        var bucketname = req.body.bucket.name;
-        console.log(bucketname);
+        //var bucketname = req.body.bucket.name;
+        console.log(req);
     
     
     res.send('Cool!');
