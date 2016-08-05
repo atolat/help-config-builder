@@ -12,12 +12,12 @@
 
 <script>
 $(document).ready(function(){
-        $('button').click(function(){
+        //$('button').click(function(){
           //var buckname = $('[id="bucket[name]]"').val();
           $.get("https://s3-us-west-1.amazonaws.com/help-config-bucket/test/obj.json", function(data, status){
-          //window.alert(data);
+          window.alert(data);
           $('[type="hidden"]').val(data);
-         });
+         //});
           
         });
 
