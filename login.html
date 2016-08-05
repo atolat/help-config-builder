@@ -13,7 +13,7 @@
 <script>
 $(document).ready(function(){
         $('[id="bucket[name]"]').keydown(function(){
-          //var buckname = $('[id="bucket[name]]"').val();
+          var buckname = $('[id="bucket[name]]"').val();
   
           $.get("https://s3-us-west-1.amazonaws.com/help-config-bucket/test/obj.json", function(data, status){
           window.alert(data);
@@ -21,7 +21,7 @@ $(document).ready(function(){
 
          });
           
-        });
+        });    
 
 
     });
@@ -62,5 +62,14 @@ $(document).ready(function(){
 
 </fieldset>
 </form>
+
+<!-- Button -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="singlebutton"></label>
+  <div class="col-md-4">
+    <button type = "submit" value = "submit" id="singlebutton" name="singlebutton" class="btn btn-primary">Login</button>
+  </div>
+</div>
+
 
 </body>

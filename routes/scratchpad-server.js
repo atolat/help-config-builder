@@ -14,7 +14,7 @@ module.exports = function (app) {
     //API ROOT
     app.get('/', function (req, res) {
         res.sendfile('./login.html');
-    });
+    });   
 
 
     app.post('/buildform',function(req, res){

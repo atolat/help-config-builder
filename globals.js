@@ -1,5 +1,5 @@
 var Globals = {
-    'toolnum':''
+    'toolnum':'' 
 }
 
 module.exports = Globals;

@@ -18,7 +18,7 @@ module.exports = function (app) {
             tooltip2_url : '',
             tooltip3_url : ''
 
-        },
+        },  
         resources : {
             video_resource_url : '',
             pdf_resource_url : ''
