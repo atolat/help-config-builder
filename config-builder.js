@@ -46,7 +46,9 @@ app.use(allowCrossDomain);
 
         request('https://s3-us-west-1.amazonaws.com/help-config-bucket/test/obj.json', function (error, response, body) {
     if (!error && response.statusCode == 200) {
-        console.log(body); // Show the HTML for the Modulus homepage.
+        console.log(body); 
+        schema = JSON.parse(body);
+        console.log(schema);	
     }
 });
 
