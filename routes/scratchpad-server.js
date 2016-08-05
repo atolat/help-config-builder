@@ -38,7 +38,7 @@ module.exports = function (app) {
   console.log(res.headers);
   res.setEncoding('utf8');
   res.on('data', function(chunk){
-    console.log(chunk);
+    //console.log(chunk);
     myGLOBALobj.configSchema = JSON.parse(chunk);
     //Count number of tooltip urls::
     // myGLOBALobj.tooltip_num = _.toArray(configSchema.tooltips).length;
@@ -67,8 +67,8 @@ module.exports = function (app) {
 }).end();
 
 
- var globalDataSchema = myGLOBALobj.configSchema;
- console.log(globalDataSchema);
+ console.log(myGLOBALobj.configSchema);
+ //console.log(globalDataSchema);
 //Count number of tooltip urls::
     // var tooltip_num = _.toArray(globalDataSchema.tooltips).length;
     // console.log(tooltip_num);
