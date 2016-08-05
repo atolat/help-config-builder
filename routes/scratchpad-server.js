@@ -19,7 +19,7 @@ module.exports = function (app) {
   res.setEncoding('utf8');
   res.on('data', function(chunk){
     console.log(chunk);
-    var configSchema = chunk;
+    var configSchema = JSON.parse(chunk);
     console.log(configSchema.tooltips.tooltip1_url);
 
   });
