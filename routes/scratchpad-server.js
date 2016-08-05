@@ -21,9 +21,18 @@ module.exports = function (app) {
   res.on('data', function(chunk){
     console.log(chunk);
     var configSchema = JSON.parse(chunk);
+    //Count number of tooltip urls::
     var tooltip_num = _.toArray(configSchema.tooltips).length;
     console.log(tooltip_num);
-    
+
+    //Count number of video resource urls::
+    var video_resource_num = _.toArray(configSchema.resources.video_resources).length;
+    console.log(video_resource_num);
+
+    //Count number of video resource urls::
+    var pdf_resource_num = _.toArray(configSchema.resources.pdf_resources).length;
+    console.log(pdf_resource_num);
+  
 
   });
 }).end();
@@ -32,22 +41,25 @@ module.exports = function (app) {
 
 
 
-//     var configSchema = {
-//         tooltips : {
-//             tooltip1_url : '',
-//             tooltip2_url : '',
-//             tooltip3_url : ''
+    // var configSchema = {
+    //     tooltips : {
+    //         tooltip1_url : '',
+    //         tooltip2_url : '',
+    //         tooltip3_url : ''
 
-//         },
-//         resources : {
-//             video_resource_url : '',
-//             pdf_resource_url : ''
-//         },
-//         shoutout:{
-//             shoutout_url : '',
-//             period : ''
-//         }
-//     };
+    //     },
+    //     resources : {
+    //         video_resources: {
+    //             video1_url: '',
+    //             ...
+    //         }
+    //         pdf_resources : {
+    //             pdf1_url: '',
+    //             ...
+    //         }
+    //     },
+       
+    // };
 
 
 //     //API ROOT
