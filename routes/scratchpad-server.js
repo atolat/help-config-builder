@@ -5,7 +5,7 @@ module.exports = function (app) {
     app.use(bodyParser.json());
     var knox = require('knox');
     var _ = require('underscore'); 
-    var myGLOBALobj = {};
+    var globalDataSchema;
 
 
 //     //API ROOT
@@ -39,7 +39,7 @@ module.exports = function (app) {
   res.setEncoding('utf8');
   res.on('data', function(chunk){
     //console.log(chunk);
-    myGLOBALobj.configSchema = JSON.parse(chunk);
+    globalDataSchema = JSON.parse(chunk);
     //Count number of tooltip urls::
     // myGLOBALobj.tooltip_num = _.toArray(configSchema.tooltips).length;
    
@@ -67,7 +67,7 @@ module.exports = function (app) {
 }).end();
 
 
- console.log(myGLOBALobj.configSchema);
+ console.log(globalDataSchema);
  //console.log(globalDataSchema);
 //Count number of tooltip urls::
     // var tooltip_num = _.toArray(globalDataSchema.tooltips).length;
