@@ -12,16 +12,17 @@
 
 <script>
 $(document).ready(function(){
-        $('[id="bucket[name]"]').focusout(function(){
-          var buckname = $('[id="bucket[name]]"').val();
-          window.alert(buckname);
+        $('[id="bucket[name]"]').keyup(function(){
+          var buckname = $(this).val();
+          //window.alert(buckname);
           $.get("https://s3-us-west-1.amazonaws.com/"+buckname+"/test/obj.json", function(data, status){
-          window.alert(data);
+          //window.alert(data);
           $('[type="hidden"]').val(data);
+
 
          });
           
-        });    
+        }).keyup();    
 
 
     });
