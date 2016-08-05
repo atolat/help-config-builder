@@ -62,14 +62,14 @@ module.exports = function (app) {
 
     }
   
-
+res.send(htmlHead+tooltipFieldHtml+htmlTail);
 
   });
 }).end();
 
     
     
-    res.send(htmlHead+tooltipFieldHtml+htmlTail);
+    
   
 });
 
