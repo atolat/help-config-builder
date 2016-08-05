@@ -20,7 +20,8 @@ module.exports = function (app) {
   res.on('data', function(chunk){
     console.log(chunk);
     var configSchema = chunk;
-    console.log(configSchema); 
+    console.log(configSchema.tooltips.tooltip1_url);
+
   });
 }).end();
 
