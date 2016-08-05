@@ -27,6 +27,7 @@ module.exports = function (app) {
         , bucket: bucketname
     });
 
+    
     client.get('/test/obj.json').on('response', function(res){
   console.log(res.statusCode);
   console.log(res.headers);
@@ -46,6 +47,11 @@ module.exports = function (app) {
     var pdf_resource_num = _.toArray(configSchema.resources.pdf_resources).length;
     console.log(pdf_resource_num);
 
+  
+
+  });
+}).end();
+
     
     
     res.send('Cool!');
@@ -57,22 +63,6 @@ module.exports = function (app) {
     
 
 
-    
-
-
-app.post("/buildjsonform", function (req, res) {
-    
-
-    
-    
-    res.send('Cool!');
-  
-});
-
-  
-
-  });
-}).end();
 
 
 
