@@ -27,17 +27,6 @@ module.exports = function (app) {
         , bucket: bucketname
     });
 
-    
-    
-    res.send('Cool!');
-  
-});
-
-
-   
-    
-
-
     client.get('/test/obj.json').on('response', function(res){
   console.log(res.statusCode);
   console.log(res.headers);
@@ -56,6 +45,19 @@ module.exports = function (app) {
     //Count number of video resource urls::
     var pdf_resource_num = _.toArray(configSchema.resources.pdf_resources).length;
     console.log(pdf_resource_num);
+
+    
+    
+    res.send('Cool!');
+  
+});
+
+
+   
+    
+
+
+    
 
 
 app.post("/buildjsonform", function (req, res) {
