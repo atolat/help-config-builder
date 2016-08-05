@@ -84,7 +84,7 @@ app.use(allowCrossDomain);
         tooltipFieldHtml = tooltipFieldHtml + '<div class="form-group"><label class="col-md-4 control-label" for="flow[tooltip1_url]">Tooltip URL</label><div class="col-md-4"><input id="flow[tooltip1_url]" name="flow[tooltip1_url]" type="text" placeholder="" class="form-control input-md"></div></div>';
 
     }
-  
+   
 
 
   });
