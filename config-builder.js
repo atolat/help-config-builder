@@ -89,7 +89,8 @@ app.use(allowCrossDomain);
 
   });
 }).end();
-    res.send(globals.toolnum);
+    res.send('globals.toolnum');
+    console.log(globals.toolnum);
 
     
     
