@@ -11,7 +11,7 @@ var request = require('request');
     app.use(bodyParser.json());
     var knox = require('knox');
     var _ = require('underscore'); 
-    var schema = {};
+    
 
 //CORS Configuration
 allowCrossDomain = function (req, res, next) {
@@ -39,23 +39,19 @@ app.use(allowCrossDomain);
         res.sendfile('./login.html');
     });
 
-    app.post("/getbucketname", function (req, res) {
-        
-        var bucketname = req.body.bucket.name;
-        console.log(bucketname);
-function getSchema(){
-        request('https://s3-us-west-1.amazonaws.com/help-config-bucket/test/obj.json', function (error, response, body) {
-    if (!error && response.statusCode == 200) {
-        console.log(body); 
-        schema = JSON.parse(body);
-        console.log(schema);
-        return schema;	
-    }
-});
-        return schema;
-    }
-    	console.log(schema);
-        res.send(getSchema());
+//     app.post("/getbucketname", function (req, res) {
+//         var schema = {};
+//         var bucketname = req.body.bucket.name;
+//         console.log(bucketname);
+
+//         request('https://s3-us-west-1.amazonaws.com/help-config-bucket/test/obj.json', function (error, response, body) {
+//     if (!error && response.statusCode == 200) {
+//         console.log(body); 
+//         schema = JSON.parse(body);
+//         console.log(schema);
+//        }
+// });
+//         res.send(schema);
 
          //Create the S3 client
     // var client = knox.createClient({
