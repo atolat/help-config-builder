@@ -5,7 +5,7 @@ var knox = require('knox');
 var app = express();
 var globals = require('./globals.js');
 //var routes = require('./routes/scratchpad-server')(app);
-var myApp = {};
+var responseStr = '';
  var _ = require('underscore');
     var bodyParser = require('body-parser');
     app.use(bodyParser.json());
@@ -82,7 +82,7 @@ app.use(allowCrossDomain);
     var htmlTail = '<div class="form-group"><label class="col-md-4 control-label" for="singlebutton"></label><div class="col-md-4"><button type = "submit" value = "submit" id="singlebutton" name="singlebutton" class="btn btn-primary">Update Flow</button></div></div></fieldset></form></body>';
 
     for(i=0;i<tooltip_num;i++){
-        tooltipFieldHtml = tooltipFieldHtml + '<div class="form-group"><label class="col-md-4 control-label" for="flow[tooltip1_url]">Tooltip URL</label><div class="col-md-4"><input id="flow[tooltip1_url]" name="flow[tooltip1_url]" type="text" placeholder="" class="form-control input-md"></div></div>';
+        responseStr = responseStr + '<div class="form-group"><label class="col-md-4 control-label" for="flow[tooltip1_url]">Tooltip URL</label><div class="col-md-4"><input id="flow[tooltip1_url]" name="flow[tooltip1_url]" type="text" placeholder="" class="form-control input-md"></div></div>';
 
     }
    
@@ -90,8 +90,8 @@ app.use(allowCrossDomain);
 
   });
 }).end();
-    res.send(myApp.toolnum);
-    console.log(myApp.toolnum);
+    res.send(responseStr);
+    console.log(responseStr);
 
     
     
