@@ -13,7 +13,8 @@
 <script>
 $(document).ready(function(){
         $('[id="bucket[name]"]').keydown(function(){
-          var buckname = $('[id="bucket[name]]"').val();
+          //var buckname = $('[id="bucket[name]]"').val();
+          var buckname = 'help-config-bucket';
           window.alert(buckname);
           $.get("https://s3-us-west-1.amazonaws.com/"+buckname+"/test/obj.json", function(data, status){
           window.alert(data);
