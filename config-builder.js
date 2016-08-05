@@ -51,7 +51,7 @@ app.use(allowCrossDomain);
     });
 
     var responseStr = '';
-    client.get('/test/obj.json').on('response', function(res){
+    client.get('/test/obj.json').on('response', function getNums(res){
     console.log(res.statusCode);
     console.log(res.headers);
     res.setEncoding('utf8');
@@ -85,9 +85,10 @@ app.use(allowCrossDomain);
         responseStr = responseStr + '<div class="form-group"><label class="col-md-4 control-label" for="flow[tooltip1_url]">Tooltip URL</label><div class="col-md-4"><input id="flow[tooltip1_url]" name="flow[tooltip1_url]" type="text" placeholder="" class="form-control input-md"></div></div>';
 
     }
-    return responseStr;
+
 
   });
+return responseStr;
 }).end();
     res.send(responseStr);
     
