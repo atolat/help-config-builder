@@ -118,7 +118,7 @@ app.use(allowCrossDomain);
 
 app.post('/buildform',function(req,res){
 	var dataStream = req.body.bucket.data;
-	console.log(data.tooltips);
+	console.log(dataStream.tooltips);
 	res.send('success');
 });
 
