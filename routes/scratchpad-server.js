@@ -27,12 +27,12 @@ module.exports = function (app) {
         , bucket: bucketname
     });
 
-    
+
     client.get('/test/obj.json').on('response', function(res){
   console.log(res.statusCode);
   console.log(res.headers);
   res.setEncoding('utf8');
-  res.on('data', function(chunk){
+  res.on('data', function(chunk){  
     console.log(chunk);
     var configSchema = JSON.parse(chunk);
     //Count number of tooltip urls::
