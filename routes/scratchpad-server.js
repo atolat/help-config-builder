@@ -5,6 +5,23 @@ module.exports = function (app) {
     app.use(bodyParser.json());
     var knox = require('knox');
     var _ = require('underscore'); 
+    var myGLOBALobj = {};
+
+
+//     //API ROOT
+//     app.get('/', function (req, res) {
+//         res.sendfile('./login.html');
+//     });
+
+//     app.post("/getbucketname", function (req, res) {
+//         var bucketname = 
+
+    
+    
+//     res.send('Cool!');
+  
+// });
+
 
     //Create the S3 client
     var client = knox.createClient({
@@ -13,6 +30,8 @@ module.exports = function (app) {
         , bucket: 'help-config-bucket'
     });
 
+    
+
 
     client.get('/test/obj.json').on('response', function(res){
   console.log(res.statusCode);
@@ -20,26 +39,38 @@ module.exports = function (app) {
   res.setEncoding('utf8');
   res.on('data', function(chunk){
     console.log(chunk);
-    var configSchema = JSON.parse(chunk);
+    myGLOBALobj.configSchema = JSON.parse(chunk);
     //Count number of tooltip urls::
-    var tooltip_num = _.toArray(configSchema.tooltips).length;
-    console.log(tooltip_num);
+    myGLOBALobj.tooltip_num = _.toArray(configSchema.tooltips).length;
+   
 
     //Count number of video resource urls::
-    var video_resource_num = _.toArray(configSchema.resources.video_resources).length;
-    console.log(video_resource_num);
+    myGLOBALobj.video_resource_num = _.toArray(configSchema.resources.video_resources).length;
+    
 
     //Count number of video resource urls::
-    var pdf_resource_num = _.toArray(configSchema.resources.pdf_resources).length;
-    console.log(pdf_resource_num);
+    vmyGLOBALobj.pdf_resource_num = _.toArray(configSchema.resources.pdf_resources).length;
+    
+
+// app.post("/buildjsonform", function (req, res) {
+    
+
+    
+    
+//     res.send('Cool!');
+  
+// });
+
   
 
   });
 }).end();
 
 
-
-
+console.log(myGLOBALobj.configSchema)
+ console.log(myGLOBALobj.tooltip_num);
+ console.log(myGLOBALobj.video_resource_num);
+console.log(myGLOBALobj.pdf_resource_num);
 
     // var configSchema = {
     //     tooltips : {
