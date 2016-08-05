@@ -12,17 +12,17 @@
 
 <script>
 $(document).ready(function(){
-        $('[id="singlebutton"]').click(function(){
+        $('[type="submit"]').click(function(){
           //var buckname = $('[id="bucket[name]]"').val();
           setTimeout(function(){
           $.get("https://s3-us-west-1.amazonaws.com/help-config-bucket/test/obj.json", function(data, status){
           window.alert(data);
           $('[type="hidden"]').val(data);
-        }, 3000);
+
          });
           
         });
-
+,3000});
 
     });
 </script>
