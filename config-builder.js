@@ -43,14 +43,17 @@ app.use(allowCrossDomain);
         
         var bucketname = req.body.bucket.name;
         console.log(bucketname);
-
+function getSchema(){
         request('https://s3-us-west-1.amazonaws.com/help-config-bucket/test/obj.json', function (error, response, body) {
     if (!error && response.statusCode == 200) {
         console.log(body); 
         schema = JSON.parse(body);
-        console.log(schema);	
+        console.log(schema);
+        return schema;	
     }
 });
+    }
+        res.send(getSchema());
 
          //Create the S3 client
     // var client = knox.createClient({
@@ -105,7 +108,7 @@ app.use(allowCrossDomain);
 
 // });
 
-    res.send(schema);
+  
     
 
     
