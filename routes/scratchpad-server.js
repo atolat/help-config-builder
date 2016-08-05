@@ -19,7 +19,7 @@ module.exports = function (app) {
   res.setEncoding('utf8');
   res.on('data', function(chunk){
     //console.log(chunk);
-    global.getdata = chunk; 
+    GLOBAL.getdata = chunk; 
   });
 }).end();
 
