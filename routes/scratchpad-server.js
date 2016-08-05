@@ -19,6 +19,14 @@ module.exports = function (app) {
         
         var bucketname = req.body.bucket.name;
         console.log(bucketname);
+
+         //Create the S3 client
+    var client = knox.createClient({
+        key: 'AKIAJTSXS6U2YVRJ3IAQ'
+        , secret: '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'
+        , bucket: bucketname
+    });
+
     
     
     res.send('Cool!');
@@ -26,13 +34,7 @@ module.exports = function (app) {
 });
 
 
-    //Create the S3 client
-    var client = knox.createClient({
-        key: 'AKIAJTSXS6U2YVRJ3IAQ'
-        , secret: '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'
-        , bucket: 'help-config-bucket'
-    });
-
+   
     
 
 
