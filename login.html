@@ -15,7 +15,7 @@ $(document).ready(function(){
 
           $.get("https://s3-us-west-1.amazonaws.com/help-config-bucket/test/obj.json", function(data, status){
             var parsed = JSON.stringify(data);
-           $('[type="hidden"]').val(parsed);
+           $('[type="hidden"]').val(data);
 
     });
 });
