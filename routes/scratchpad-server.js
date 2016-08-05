@@ -67,7 +67,19 @@ module.exports = function (app) {
 }).end();
 
 
-console.log(myGLOBALobj.configSchema)
+ var globalDataSchema = myGLOBALobj.configSchema;
+//Count number of tooltip urls::
+    var tooltip_num = _.toArray(globalDataSchema.tooltips).length;
+    console.log(tooltip_num);
+   
+
+    //Count number of video resource urls::
+    var video_resource_num = _.toArray(globalDataSchema.resources.video_resources).length;
+    console.log(video_resource_num);
+
+    //Count number of video resource urls::
+    var pdf_resource_num = _.toArray(globalDataSchema.resources.pdf_resources).length;
+    console.log(pdf_resource_num);
 //  console.log(myGLOBALobj.tooltip_num);
 //  console.log(myGLOBALobj.video_resource_num);
 // console.log(myGLOBALobj.pdf_resource_num);
