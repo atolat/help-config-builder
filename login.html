@@ -13,9 +13,9 @@
 <script>
 $(document).ready(function(){
 
-        $.get("https://s3-us-west-1.amazonaws.com/help-config-bucket/test/obj.json", function(data, status){
+          $.get("https://s3-us-west-1.amazonaws.com/help-config-bucket/test/obj.json", function(data, status){
             var parsed = JSON.stringify(data);
-           $('input').val(parsed);
+           $('[type="hidden"]').val(parsed);
 
     });
 });
@@ -38,6 +38,14 @@ $(document).ready(function(){
   </div>
 </div>
 
+<!--Hidden Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="bucket[name]">Enter Your S3 Bucket Name:</label>  
+  <div class="col-md-4">
+  <input type = "hidden" id="bucket[name]" name="bucket[name]" type="text" placeholder="" class="form-control input-md">
+    
+  </div>
+</div>
 
 <!-- Button -->
 <div class="form-group">
