@@ -53,6 +53,7 @@ function getSchema(){
     }
 });
     }
+    	console.log(schema);
         res.send(getSchema());
 
          //Create the S3 client
