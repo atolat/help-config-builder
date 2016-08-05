@@ -19,12 +19,12 @@ module.exports = function (app) {
   res.setEncoding('utf8');
   res.on('data', function(chunk){
     console.log(chunk);
-    var mydata = chunk; 
+    var configSchema = chunk;
+    console.log(configSchema); 
   });
 }).end();
 
 
-console.log(mydata)
 
 
 
