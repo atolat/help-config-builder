@@ -174,7 +174,7 @@ app.post("/updatejson", function (req, res) {
     var jsonSchema = req.body;
     jsonSchema.bucket_name = req.body.bucket.name;
 
-    cansole.log(jsonSchema);
+    console.log(jsonSchema);
 
     // for(i=1;i<=tooltip_num;i++){
     // 	var toolStr = 
