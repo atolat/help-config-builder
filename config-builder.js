@@ -40,6 +40,8 @@ app.use(bodyParser.urlencoded({
 
 app.post('/buildform',function(req,res){
 	var dataStream = req.body.bucket.data;
+	console.log(req.body);
+	
 	//console.log(dataStream);
 	//console.log(dataStream.tooltips);
 	
