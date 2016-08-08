@@ -145,16 +145,15 @@ app.post('/buildform',function(req,res){
     var htmlTail = '<div class="form-group"><label class="col-md-4 control-label" for="singlebutton"></label><div class="col-md-4"><button type = "submit" value = "submit" id="singlebutton" name="singlebutton" class="btn btn-primary">Update Flow</button></div></div></fieldset></form></body>';
 
     for(i=1;i<=tooltip_num;i++){
-    	var placeholder = ''+dataStream.tooltips.tooltip+i+'_url';
-        tooltipFieldHtml = tooltipFieldHtml + '<div class="form-group"><label class="col-md-4 control-label" for="flow[tooltip1_url]">Tooltip'+i+' URL</label><div class="col-md-4"><input id="flow[tooltip1_url]" name="flow[tooltip1_url]" type="text" placeholder="'+placeholder+'" class="form-control input-md"></div></div>';
+        tooltipFieldHtml = tooltipFieldHtml + '<div class="form-group"><label class="col-md-4 control-label" for="flow[tooltip'+i+'_url]">Tooltip'+i+' URL</label><div class="col-md-4"><input id="flow[tooltip'+i+'_url]" name="flow[tooltip'+i+'_url]" type="text" placeholder="" class="form-control input-md"></div></div>';
     }
 
-    for(i=0;i<video_resource_num;i++){
-        videoFieldHtml = videoFieldHtml + '<div class="form-group"><label class="col-md-4 control-label" for="flow[tooltip1_url]">Video URL</label><div class="col-md-4"><input id="flow[tooltip1_url]" name="flow[tooltip1_url]" type="text" placeholder="" class="form-control input-md"></div></div>';
+    for(i=1;i<=video_resource_num;i++){
+        videoFieldHtml = videoFieldHtml + '<div class="form-group"><label class="col-md-4 control-label" for="flow[video'+i+'_url]">Video URL'+i+'</label><div class="col-md-4"><input id="flow[video'+i+'_url]" name="flow[video'+i+'_url]" type="text" placeholder="" class="form-control input-md"></div></div>';
     }
 
-    for(i=0;i<pdf_resource_num;i++){
-        pdfFieldHtml = pdfFieldHtml + '<div class="form-group"><label class="col-md-4 control-label" for="flow[tooltip1_url]">PDF URL</label><div class="col-md-4"><input id="flow[tooltip1_url]" name="flow[tooltip1_url]" type="text" placeholder="" class="form-control input-md"></div></div>';
+    for(i=1;i<=pdf_resource_num;i++){
+        pdfFieldHtml = pdfFieldHtml + '<div class="form-group"><label class="col-md-4 control-label" for="flow[pdf'+i+'_url]">PDF URL'+i+'</label><div class="col-md-4"><input id="flow[pdf'+i+'_url]" name="flow[pdf'+i+'_url]" type="text" placeholder="" class="form-control input-md"></div></div>';
     }
 
 	res.send(htmlHead+tooltipFieldHtml+videoFieldHtml+pdfFieldHtml+htmlTail);
