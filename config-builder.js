@@ -142,26 +142,28 @@ app.post('/buildform',function(req,res){
 
     var pdfFieldHtml = '';
 
+    var hidden = '<div class="form-group"><div class="col-md-4"><input type = "hidden" id="bucket[data]" name="bucket[data]" type="text" value = "'+dataStream+'" placeholder="" class="form-control input-md"></div></div>';
+
     var htmlTail = '<div class="form-group"><label class="col-md-4 control-label" for="singlebutton"></label><div class="col-md-4"><button type = "submit" value = "submit" id="singlebutton" name="singlebutton" class="btn btn-primary">Update Flow</button></div></div></fieldset></form></body>';
 
     for(i=1;i<=tooltip_num;i++){
-        tooltipFieldHtml = tooltipFieldHtml + '<div class="form-group"><label class="col-md-4 control-label" for="tooltips[tooltip'+i+'_url]">Tooltip '+i+' URL</label><div class="col-md-4"><input id="tooltips[tooltip'+i+'_url]" name="tooltips[tooltip'+i+'_url]" type="text" placeholder="" class="form-control input-md"></div></div>';
+        tooltipFieldHtml = tooltipFieldHtml + '<div class="form-group"><label class="col-md-4 control-label" for="flow[tooltip'+i+'_url]">Tooltip '+i+' URL</label><div class="col-md-4"><input id="flow[tooltip'+i+'_url]" name="flow[tooltip'+i+'_url]" type="text" placeholder="" class="form-control input-md"></div></div>';
     }
 
     for(i=1;i<=video_resource_num;i++){
-        videoFieldHtml = videoFieldHtml + '<div class="form-group"><label class="col-md-4 control-label" for="resources[video_resources][video'+i+'_url]">Video '+i+' URL</label><div class="col-md-4"><input id="resources[video_resources][video'+i+'_url]" name="resources[video_resources][video'+i+'_url]" type="text" placeholder="" class="form-control input-md"></div></div>';
+        videoFieldHtml = videoFieldHtml + '<div class="form-group"><label class="col-md-4 control-label" for="flow[video'+i+'_url]">Video '+i+' URL</label><div class="col-md-4"><input id="flow[video'+i+'_url]" name="flow[video'+i+'_url]" type="text" placeholder="" class="form-control input-md"></div></div>';
     }
 
     for(i=1;i<=pdf_resource_num;i++){
         pdfFieldHtml = pdfFieldHtml + '<div class="form-group"><label class="col-md-4 control-label" for="flow[pdf'+i+'_url]">PDF '+i+' URL</label><div class="col-md-4"><input id="flow[pdf'+i+'_url]" name="flow[pdf'+i+'_url]" type="text" placeholder="" class="form-control input-md"></div></div>';
     }
 
-	res.send(htmlHead+tooltipFieldHtml+videoFieldHtml+pdfFieldHtml+htmlTail);
+	res.send(htmlHead+tooltipFieldHtml+videoFieldHtml+pdfFieldHtml+hidden+htmlTail);
 });
 
 app.post("/updatejson", function (req, res) {
     
-  console.log(req.body.flow.tooltip1_url);
+  console.log(req.body.bucket);
 
     // configSchema.tooltips.tooltip1_url = req.body.flow.tooltip1_url;
     // configSchema.tooltips.tooltip2_url = req.body.flow.tooltip2_url;
