@@ -39,7 +39,7 @@ app.use(bodyParser.urlencoded({
 
 
 app.post('/buildform',function(req,res){
-	var dataStream = JSON.parse(req.body.bucket.data);
+	var dataStream = req.body.bucket.data;
 	//console.log(dataStream);
 	//console.log(dataStream.tooltips);
 	
@@ -124,7 +124,7 @@ app.post("/updatejson", function (req, res) {
 
     
     
-    res.send('Flow Updated');  
+    res.send('Cool!');
   
 });
 
