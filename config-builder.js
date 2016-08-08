@@ -143,7 +143,7 @@ app.post('/buildform',function(req,res){
 
     var pdfFieldHtml = '';
 
-    var hidden = '<div class="form-group"><div class="col-md-4"><input  id="bucket[name]" name="bucket[name]" type="text" value = "'+req.body.bucket.data.bucket_name+'" placeholder="" class="form-control input-md"></div></div>';
+    var hidden = '<div class="form-group"><div class="col-md-4"><input  id="bucket[name]" name="bucket[name]" type="text" value = "'+dataStream.bucket_name+'" placeholder="" class="form-control input-md"></div></div>';
 
     var htmlTail = '<div class="form-group"><label class="col-md-4 control-label" for="singlebutton"></label><div class="col-md-4"><button type = "submit" value = "submit" id="singlebutton" name="singlebutton" class="btn btn-primary">Update Flow</button></div></div></fieldset></form></body>';
 
