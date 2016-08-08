@@ -118,6 +118,7 @@ app.use(allowCrossDomain);
 
 app.post('/buildform',function(req,res){
 	var dataStream = JSON.parse(req.body.bucket.data);
+	console.log(dataStream.bucket);
 	console.log(dataStream.tooltips);
 	
 	//Count number of tooltip urls::
