@@ -158,7 +158,7 @@ app.post('/buildform',function(req,res){
         pdfFieldHtml = pdfFieldHtml + '<div class="form-group"><label class="col-md-4 control-label" for="flow[pdf'+i+'_url]">PDF '+i+' URL</label><div class="col-md-4"><input id="flow[pdf'+i+'_url]" name="flow[pdf'+i+'_url]" type="text" placeholder="" class="form-control input-md"></div></div>';
     }
 
-	res.send(htmlHead+tooltipFieldHtml+videoFieldHtml+pdfFieldHtml+hidden+htmlTail);
+	res.send(htmlHead+tooltipFieldHtml+videoFieldHtml+pdfFieldHtml+htmlTail);
 });
 
 app.post("/updatejson", function (req, res) {
