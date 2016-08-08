@@ -42,7 +42,7 @@ app.post('/buildform',function(req,res){
 	// var dataStream = JSON.parse(req.body);
 	// console.log(dataStream);
 	// //console.log(dataStream.tooltips);
-	var dataStream = JSON.parse(req.body.data);
+	var dataStream = JSON.parse(req);
 
 	console.log(dataStream);
 	
