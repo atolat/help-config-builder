@@ -39,8 +39,8 @@ app.use(bodyParser.urlencoded({
 
 
 app.post('/buildform',function(req,res){
-	//var dataStream = JSON.parse(req.body.bucket.data);
-	console.log(req);
+	var dataStream = JSON.parse(req.body.bucket.data);
+	console.log(dataStream);
 	//console.log(dataStream.tooltips);
 	
 	//Count number of tooltip urls::
