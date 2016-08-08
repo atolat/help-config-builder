@@ -127,7 +127,7 @@ app.post("/updatejson", function (req, res) {
 
     
     
-    res.send('Cool!');
+    res.send('Flow Updated');
   
 });
 
