@@ -176,21 +176,6 @@ app.post("/updatejson", function (req, res) {
 
     console.log(jsonSchema);
 
-    // for(i=1;i<=tooltip_num;i++){
-    // 	var toolStr = 
-    // 	jsonSchema.tooltips. = 
-    // }
-
-    // for(i=1;i<=video_resource_num;i++){
-    //     videoFieldHtml = videoFieldHtml + '<div class="form-group"><label class="col-md-4 control-label" for="video[video'+i+'_url]">Video '+i+' URL</label><div class="col-md-4"><input id="video[video'+i+'_url]" name="video[video'+i+'_url]" type="text" placeholder="" class="form-control input-md"></div></div>';
-    // }
-
-    // for(i=1;i<=pdf_resource_num;i++){
-    //     pdfFieldHtml = pdfFieldHtml + '<div class="form-group"><label class="col-md-4 control-label" for="pdf[pdf'+i+'_url]">PDF '+i+' URL</label><div class="col-md-4"><input id="pdf[pdf'+i+'_url]" name="pdf[pdf'+i+'_url]" type="text" placeholder="" class="form-control input-md"></div></div>';
-    // }
-
-
-
   //Create the S3 client
     var client = knox.createClient({
         key: 'AKIAJTSXS6U2YVRJ3IAQ'
@@ -198,34 +183,22 @@ app.post("/updatejson", function (req, res) {
         , bucket: req.body.bucket.name
     });
 
+    var string = JSON.stringify(jsonSchema);
 
-
-    // configSchema.tooltips.tooltip1_url = req.body.flow.tooltip1_url;
-    // configSchema.tooltips.tooltip2_url = req.body.flow.tooltip2_url;
-    // configSchema.tooltips.tooltip3_url = req.body.flow.tooltip3_url;
-    // configSchema.resources.pdf_resource_url = req.body.flow.pdf_resource_url;
-    // configSchema.resources.video_resource_url = req.body.flow.video_resource_url;
-    // configSchema.shoutout.shoutout_url = req.body.flow.shoutout_url;
-    // configSchema.shoutout.period = req.body.flow.period;
-
-    // console.log(configSchema);
-
-    // var string = JSON.stringify(configSchema);
-
-    // var req = client.put('/test/obj.json', {
-    //     'Content-Length': Buffer.byteLength(string)
-    //     , 'Content-Type': 'application/json'
-    //     , 'x-amz-acl': 'public-read'
-    // });
+    var req = client.put('/test/obj.json', {
+        'Content-Length': Buffer.byteLength(string)
+        , 'Content-Type': 'application/json'
+        , 'x-amz-acl': 'public-read'
+    });
     
-    // req.on('response', function(res){
+    req.on('response', function(res){
         
-    //     if (200 == res.statusCode) {
-    //         console.log('saved to %s', req.url);
-    //     }
-    // });
+        if (200 == res.statusCode) {
+            console.log('saved to %s', req.url);
+        }
+    });
     
-    // req.end(string);
+    req.end(string);
     
 
     
