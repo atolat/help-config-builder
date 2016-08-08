@@ -142,7 +142,7 @@ app.post('/buildform',function(req,res){
 
     var pdfFieldHtml = '';
 
-    var hidden = '<div class="form-group"><div class="col-md-4"><input  id="bucket[data]" name="bucket[data]" type="text" value = "'+req.body.bucket.data+'" placeholder="" class="form-control input-md"></div></div>';
+    //var hidden = '<div class="form-group"><div class="col-md-4"><input  id="bucket[data]" name="bucket[data]" type="text" value = "'+req.body.bucket.data+'" placeholder="" class="form-control input-md"></div></div>';
 
     var htmlTail = '<div class="form-group"><label class="col-md-4 control-label" for="singlebutton"></label><div class="col-md-4"><button type = "submit" value = "submit" id="singlebutton" name="singlebutton" class="btn btn-primary">Update Flow</button></div></div></fieldset></form></body>';
 
@@ -163,7 +163,7 @@ app.post('/buildform',function(req,res){
 
 app.post("/updatejson", function (req, res) {
     
-  console.log(req.body.bucket.data);
+  console.log(req.body);
 
     // configSchema.tooltips.tooltip1_url = req.body.flow.tooltip1_url;
     // configSchema.tooltips.tooltip2_url = req.body.flow.tooltip2_url;
