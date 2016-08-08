@@ -118,22 +118,22 @@ app.use(allowCrossDomain);
 
 app.post('/buildform',function(req,res){
 	var dataStream = JSON.parse(req.body.bucket.data);
-	console.log(dataStream);
-	console.log(dataStream.tooltips);
+	//console.log(dataStream);
+	//console.log(dataStream.tooltips);
 	
 	//Count number of tooltip urls::
     var tooltip_num = _.toArray(dataStream.tooltips).length;
 
     //	myApp.toolnum = tooltip_num;
-    console.log(tooltip_num);
+    //console.log(tooltip_num);
 
     //Count number of video resource urls::
     var video_resource_num = _.toArray(dataStream.video).length;
-    console.log(video_resource_num);
+    //console.log(video_resource_num);
 
     //Count number of video resource urls::
     var pdf_resource_num = _.toArray(dataStream.pdf).length;
-    console.log(pdf_resource_num);
+    //console.log(pdf_resource_num);
 
     var htmlHead = '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>Notification-Form</title><!-- Latest compiled and minified CSS --><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"></head><body><form class="form-horizontal" method="post" action="/updatejson"><fieldset><!-- Form Name --><legend>"Help" Dash</legend>';
 
@@ -165,25 +165,16 @@ app.post('/buildform',function(req,res){
 app.post("/updatejson", function (req, res) {
     
   console.log(req.body.bucket.name);
-  console.log(req.body);
+  //console.log(req.body);
 
   //Count number of tooltip urls::
     var tooltip_arr = _.toArray(req.body.tooltips);
     var tooltip_num = _.toArray(req.body.tooltips).length;
 
+    var jsonSchema = req.body;
+    jsonSchema.bucket_name = req.body.bucket.name;
 
-    //	myApp.toolnum = tooltip_num;
-    console.log(tooltip_num);
-
-    //Count number of video resource urls::
-    var video_resource_num = _.toArray(req.body.video).length;
-    console.log(video_resource_num);
-
-    //Count number of video resource urls::
-    var pdf_resource_num = _.toArray(req.body.pdf).length;
-    console.log(pdf_resource_num);
-
-    // var jsonSchema = {};
+    cansole.log(jsonSchema);
 
     // for(i=1;i<=tooltip_num;i++){
     // 	var toolStr = 
