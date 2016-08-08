@@ -166,12 +166,26 @@ app.post("/updatejson", function (req, res) {
     
   console.log(req.body.bucket.name);
 
+  //Count number of tooltip urls::
+    var tooltip_num = _.toArray(req.body.tooltips).length;
+
+    //	myApp.toolnum = tooltip_num;
+    console.log(tooltip_num);
+
+    //Count number of video resource urls::
+    var video_resource_num = _.toArray(req.body.video).length;
+    console.log(video_resource_num);
+
+    //Count number of video resource urls::
+    var pdf_resource_num = _.toArray(req.body.pdf).length;
+    console.log(pdf_resource_num);
+
   //Create the S3 client
-    // var client = knox.createClient({
-    //     key: 'AKIAJTSXS6U2YVRJ3IAQ'
-    //     , secret: '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'
-    //     , bucket: req.body.bucket.name
-    // });
+    var client = knox.createClient({
+        key: 'AKIAJTSXS6U2YVRJ3IAQ'
+        , secret: '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'
+        , bucket: req.body.bucket.name
+    });
 
     // configSchema.tooltips.tooltip1_url = req.body.flow.tooltip1_url;
     // configSchema.tooltips.tooltip2_url = req.body.flow.tooltip2_url;
