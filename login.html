@@ -16,6 +16,7 @@ $(document).ready(function(){
           var buckname = $(this).val();
           $.get("https://s3-us-west-1.amazonaws.com/"+buckname+"/test/obj.json", function(data, status){
           $('[type="hidden"]').val(data);
+          window.alert(data);
          });
           
         }).keyup();    
@@ -41,7 +42,7 @@ $(document).ready(function(){
   </div>
 </div>
 
-<!--Hidden Text input-->
+<!--Hidden Text input-->   
 <div class="form-group">
     <div class="col-md-4">
   <input type = "hidden" id="bucket[data]" name="bucket[data]" type="text" placeholder="" class="form-control input-md">
