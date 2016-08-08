@@ -143,7 +143,7 @@ app.post('/buildform',function(req,res){
 
     var pdfFieldHtml = '';
 
-    //var hidden = '<div class="form-group"><div class="col-md-4"><input  id="bucket[data]" name="bucket[data]" type="text" value = "'+req.body.bucket.data+'" placeholder="" class="form-control input-md"></div></div>';
+    var hidden = '<div class="form-group"><div class="col-md-4"><input  id="bucket[name]" name="bucket[name]" type="text" value = "'+req.body.bucket.data.bucket_name+'" placeholder="" class="form-control input-md"></div></div>';
 
     var htmlTail = '<div class="form-group"><label class="col-md-4 control-label" for="singlebutton"></label><div class="col-md-4"><button type = "submit" value = "submit" id="singlebutton" name="singlebutton" class="btn btn-primary">Update Flow</button></div></div></fieldset></form></body>';
 
@@ -159,7 +159,7 @@ app.post('/buildform',function(req,res){
         pdfFieldHtml = pdfFieldHtml + '<div class="form-group"><label class="col-md-4 control-label" for="pdf[pdf'+i+'_url]">PDF '+i+' URL</label><div class="col-md-4"><input id="pdf[pdf'+i+'_url]" name="pdf[pdf'+i+'_url]" type="text" placeholder="" class="form-control input-md"></div></div>';
     }
 
-	res.send(htmlHead+tooltipFieldHtml+videoFieldHtml+pdfFieldHtml+htmlTail);
+	res.send(htmlHead+tooltipFieldHtml+videoFieldHtml+pdfFieldHtml+hidden+htmlTail);
 });
 
 app.post("/updatejson", function (req, res) {
