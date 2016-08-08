@@ -17,6 +17,8 @@ $(document).ready(function(){
           $.get("https://s3-us-west-1.amazonaws.com/"+buckname+"/test/obj.json", function(data, status){
           var parseData = JSON.stringify(data);
           $('[type="hidden"]').val(data);
+          window.alert(data);
+          window.alert(parseData);
          });
           
         }).keyup();    
