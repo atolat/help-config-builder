@@ -145,11 +145,11 @@ app.post('/buildform',function(req,res){
     var htmlTail = '<div class="form-group"><label class="col-md-4 control-label" for="singlebutton"></label><div class="col-md-4"><button type = "submit" value = "submit" id="singlebutton" name="singlebutton" class="btn btn-primary">Update Flow</button></div></div></fieldset></form></body>';
 
     for(i=1;i<=tooltip_num;i++){
-        tooltipFieldHtml = tooltipFieldHtml + '<div class="form-group"><label class="col-md-4 control-label" for="flow[tooltip'+i+'_url]">Tooltip '+i+' URL</label><div class="col-md-4"><input id="flow[tooltip'+i+'_url]" name="flow[tooltip'+i+'_url]" type="text" placeholder="" class="form-control input-md"></div></div>';
+        tooltipFieldHtml = tooltipFieldHtml + '<div class="form-group"><label class="col-md-4 control-label" for="tooltips[tooltip'+i+'_url]">Tooltip '+i+' URL</label><div class="col-md-4"><input id="tooltips[tooltip'+i+'_url]" name="tooltips[tooltip'+i+'_url]" type="text" placeholder="" class="form-control input-md"></div></div>';
     }
 
     for(i=1;i<=video_resource_num;i++){
-        videoFieldHtml = videoFieldHtml + '<div class="form-group"><label class="col-md-4 control-label" for="flow[video'+i+'_url]">Video '+i+' URL</label><div class="col-md-4"><input id="flow[video'+i+'_url]" name="flow[video'+i+'_url]" type="text" placeholder="" class="form-control input-md"></div></div>';
+        videoFieldHtml = videoFieldHtml + '<div class="form-group"><label class="col-md-4 control-label" for="resources[video_resources[video'+i+'_url]]">Video '+i+' URL</label><div class="col-md-4"><input id="resources[video_resources[video'+i+'_url]]" name="resources[video_resources[video'+i+'_url]]" type="text" placeholder="" class="form-control input-md"></div></div>';
     }
 
     for(i=1;i<=pdf_resource_num;i++){
@@ -161,7 +161,7 @@ app.post('/buildform',function(req,res){
 
 app.post("/updatejson", function (req, res) {
     
-  console.log(req);
+  console.log(req.body.flow.tooltip1_url);
 
     // configSchema.tooltips.tooltip1_url = req.body.flow.tooltip1_url;
     // configSchema.tooltips.tooltip2_url = req.body.flow.tooltip2_url;
