@@ -162,8 +162,8 @@ app.post('/buildform',function(req,res){
 });
 
 app.post("/updatejson", function (req, res) {
-   var data = JSON.parse(req.body.bucket) 
-  console.log(data);
+    
+  console.log(req.body.bucket.data);
 
     // configSchema.tooltips.tooltip1_url = req.body.flow.tooltip1_url;
     // configSchema.tooltips.tooltip2_url = req.body.flow.tooltip2_url;
