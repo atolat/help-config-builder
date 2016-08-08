@@ -42,7 +42,7 @@ app.post('/buildform',function(req,res){
 	// var dataStream = JSON.parse(req.body);
 	// console.log(dataStream);
 	// //console.log(dataStream.tooltips);
-	console.log(req.body);
+	console.log(req.body.data);
 	
 	// //Count number of tooltip urls::
  //    var tooltip_num = _.toArray(dataStream.bucket.data.tooltips).length;
