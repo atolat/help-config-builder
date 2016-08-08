@@ -165,9 +165,12 @@ app.post('/buildform',function(req,res){
 app.post("/updatejson", function (req, res) {
     
   console.log(req.body.bucket.name);
+  console.log(req.body);
 
   //Count number of tooltip urls::
+    var tooltip_arr = _.toArray(req.body.tooltips);
     var tooltip_num = _.toArray(req.body.tooltips).length;
+
 
     //	myApp.toolnum = tooltip_num;
     console.log(tooltip_num);
@@ -180,12 +183,31 @@ app.post("/updatejson", function (req, res) {
     var pdf_resource_num = _.toArray(req.body.pdf).length;
     console.log(pdf_resource_num);
 
+    // var jsonSchema = {};
+
+    // for(i=1;i<=tooltip_num;i++){
+    // 	var toolStr = 
+    // 	jsonSchema.tooltips. = 
+    // }
+
+    // for(i=1;i<=video_resource_num;i++){
+    //     videoFieldHtml = videoFieldHtml + '<div class="form-group"><label class="col-md-4 control-label" for="video[video'+i+'_url]">Video '+i+' URL</label><div class="col-md-4"><input id="video[video'+i+'_url]" name="video[video'+i+'_url]" type="text" placeholder="" class="form-control input-md"></div></div>';
+    // }
+
+    // for(i=1;i<=pdf_resource_num;i++){
+    //     pdfFieldHtml = pdfFieldHtml + '<div class="form-group"><label class="col-md-4 control-label" for="pdf[pdf'+i+'_url]">PDF '+i+' URL</label><div class="col-md-4"><input id="pdf[pdf'+i+'_url]" name="pdf[pdf'+i+'_url]" type="text" placeholder="" class="form-control input-md"></div></div>';
+    // }
+
+
+
   //Create the S3 client
     var client = knox.createClient({
         key: 'AKIAJTSXS6U2YVRJ3IAQ'
         , secret: 'J2hWWIKZAIkYMqsbgWnZgSJ6tYYWfp1YVSfsxpYw'
         , bucket: req.body.bucket.name
     });
+
+
 
     // configSchema.tooltips.tooltip1_url = req.body.flow.tooltip1_url;
     // configSchema.tooltips.tooltip2_url = req.body.flow.tooltip2_url;
