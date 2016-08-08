@@ -143,7 +143,7 @@ app.post('/buildform',function(req,res){
 
     var pdfFieldHtml = '';
 
-    var hidden = '<div class="form-group"><div class="col-md-4"><input  id="bucket[name]" name="bucket[name]" type="text" value = "'+dataStream.bucket_name+'" placeholder="" class="form-control input-md"></div></div>';
+    var hidden = '<div class="form-group"><div class="col-md-4"><input  id="bucket[name]" type = "hidden" name="bucket[name]" type="text" value = "'+dataStream.bucket_name+'" placeholder="" class="form-control input-md"></div></div>';
 
     var htmlTail = '<div class="form-group"><label class="col-md-4 control-label" for="singlebutton"></label><div class="col-md-4"><button type = "submit" value = "submit" id="singlebutton" name="singlebutton" class="btn btn-primary">Update Flow</button></div></div></fieldset></form></body>';
 
@@ -166,6 +166,13 @@ app.post("/updatejson", function (req, res) {
     
   console.log(req.body);
 
+  //Create the S3 client
+    var client = knox.createClient({
+        key: 'AKIAJTSXS6U2YVRJ3IAQ'
+        , secret: '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'
+        , bucket: req.body.bucket.name
+    });
+
     // configSchema.tooltips.tooltip1_url = req.body.flow.tooltip1_url;
     // configSchema.tooltips.tooltip2_url = req.body.flow.tooltip2_url;
     // configSchema.tooltips.tooltip3_url = req.body.flow.tooltip3_url;
@@ -178,20 +185,20 @@ app.post("/updatejson", function (req, res) {
 
     // var string = JSON.stringify(configSchema);
 
-    // var req = client.put('/test/obj.json', {
-    //     'Content-Length': Buffer.byteLength(string)
-    //     , 'Content-Type': 'application/json'
-    //     , 'x-amz-acl': 'public-read'
-    // });
+    var req = client.put('/test/obj.json', {
+        'Content-Length': Buffer.byteLength(string)
+        , 'Content-Type': 'application/json'
+        , 'x-amz-acl': 'public-read'
+    });
     
-    // req.on('response', function(res){
+    req.on('response', function(res){
         
-    //     if (200 == res.statusCode) {
-    //         console.log('saved to %s', req.url);
-    //     }
-    // });
+        if (200 == res.statusCode) {
+            console.log('saved to %s', req.url);
+        }
+    });
     
-    // req.end(string);
+    req.end(string);
     
 
     
