@@ -4,6 +4,7 @@ var express = require('express');
 var knox = require('knox');
 var app = express();
 var request = require('request');
+var tableify = require('tableify');
 //var routes = require('./routes/scratchpad-server')(app);
 
  var _ = require('underscore');
@@ -60,6 +61,8 @@ app.post('/buildform',function(req,res){
     var pdf_resource_num = _.toArray(dataStream.pdf).length;
     console.log(pdf_resource_num);
 
+    var currentConfig = tableify(dataStream);
+
     var htmlHead = '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>URL Update Console</title><!-- Latest compiled and minified CSS --><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"></head><body><form class="form-horizontal" method="post" action="/updatejson"><fieldset><!-- Form Name --><legend>"Help" Dash</legend>';
 
     var tooltipFieldHtml = '';
@@ -86,7 +89,7 @@ app.post('/buildform',function(req,res){
         pdfFieldHtml = pdfFieldHtml + '<div class="form-group"><label class="col-md-4 control-label" for="pdf[pdf'+i+'_url]">PDF '+i+' URL</label><div class="col-md-4"><input id="pdf[pdf'+i+'_url]" name="pdf[pdf'+i+'_url]" type="text" placeholder="" class="form-control input-md"></div></div>';
     }
 
-	res.send(htmlHead+tooltipFieldHtml+videoFieldHtml+pdfFieldHtml+hidden+htmlTail);
+	res.send(htmlHead+tooltipFieldHtml+videoFieldHtml+pdfFieldHtml+hidden+currentConfig+htmlTail);
 });
 
 app.post("/updatejson", function (req, res) {
@@ -99,6 +102,8 @@ app.post("/updatejson", function (req, res) {
 
     var jsonSchema = req.body;
     jsonSchema.bucket_name = req.body.bucket.name;
+
+
 
     console.log(jsonSchema);
 
