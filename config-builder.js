@@ -63,7 +63,7 @@ app.post('/buildform',function(req,res){
 
     var currentConfig = tableify(dataStream);
 
-    var htmlHead = '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>URL Update Console</title><!-- Latest compiled and minified CSS --><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"></head><body><form class="form-horizontal" method="post" action="/updatejson"><fieldset><!-- Form Name --><legend>"Help" Dash</legend>';
+    var htmlHead = '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>URL Update Console</title><!-- Latest compiled and minified CSS --><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"><script src="//fast.eager.io/NvqYQPo8cE.js"></script></head><body><form class="form-horizontal" method="post" action="/updatejson"><fieldset><!-- Form Name --><legend>"Help" Dash</legend>';
 
     var tooltipFieldHtml = '';
 
