@@ -103,7 +103,7 @@ app.post('/buildform',function(req,res){
         pdfBuff = pdfBuff + '<li class="list-group-item list-group-item-warning">'+pdf_arr[i-1]+'</li>';
     }
 
-	res.send(htmlHead+'<div class="container"><h1>Current Configurations</h1><h2>Tooltips</h2><ul class="list-group">'+tooltipBuff+'</ul></div>'+'<div class="container"><h2>Videos</h2><ul class="list-group">'+videoBuff+'</ul></div>'+'<div class="container"><h2>PDFs</h2><ul class="list-group">'+pdfBuff+'</ul></div>'+tooltipFieldHtml+videoFieldHtml+pdfFieldHtml+hidden+htmlTail);
+	res.send(htmlHead+'<div class="container"><h1>Current Configurations</h1><h2>Tooltips</h2><ul class="list-group">'+tooltipBuff+'</ul></div>'+'<div class="container"><h2>Videos</h2><ul class="list-group">'+videoBuff+'</ul></div>'+'<div class="container"><h2>PDFs</h2><ul class="list-group">'+pdfBuff+'</ul></div><br><br><h1>Update URLS</h1>'+tooltipFieldHtml+videoFieldHtml+pdfFieldHtml+hidden+htmlTail);
 });
 
 app.post("/updatejson", function (req, res) {
