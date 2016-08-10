@@ -65,7 +65,9 @@ app.post('/buildform',function(req,res){
     var pdf_arr = _.toArray(dataStream.pdf);
     //console.log(pdf_resource_num);
 
-    var currentConfig = tableify(dataStream);
+    var tooltipConfig = tableify(dataStream.tooltips);
+    var videoConfig = tableify(dataStream.video); 
+    var pdfConfig = tableify(dataStream.pdf);
 
     var htmlHead = '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>URL Update Console</title><!-- Latest compiled and minified CSS --><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"><script src="//fast.eager.io/NvqYQPo8cE.js"></script></head><body> <nav class="navbar navbar-inverse navbar-fixed-top"><div class="container">        <div class="navbar-header">          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"></div>  <div id="navbar" class="navbar-collapse collapse"> </div><!--/.navbar-collapse -->      </div>    </nav><br><br>    <!-- Main jumbotron for a primary marketing message or call to action -->    <div class="jumbotron"><div class="container"><h1><center>URL Update Console</center></h1></div></div><form class="form-horizontal" method="post" action="/updatejson"><fieldset><!-- Form Name -->';
 
@@ -93,7 +95,7 @@ app.post('/buildform',function(req,res){
         pdfFieldHtml = pdfFieldHtml + '<div class="form-group"><label class="col-md-4 control-label" for="pdf[pdf'+i+'_url]">PDF '+i+' URL</label><div class="col-md-4"><input id="pdf[pdf'+i+'_url]" name="pdf[pdf'+i+'_url]" type="text" placeholder="'+pdf_arr[i-1]+'" class="form-control input-md"></div></div>';
     }
 
-	res.send(htmlHead+tooltipFieldHtml+videoFieldHtml+pdfFieldHtml+hidden+htmlTail+'<center>'+currentConfig+'</center>');
+	res.send(htmlHead+tooltipFieldHtml+videoFieldHtml+pdfFieldHtml+hidden+htmlTail+'<center>'+tooltipConfig+videoConfig+pdfConfig+'</center>');
 });
 
 app.post("/updatejson", function (req, res) {
