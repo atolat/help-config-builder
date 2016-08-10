@@ -57,10 +57,12 @@ app.post('/buildform',function(req,res){
 
     //Count number of video resource urls::
     var video_resource_num = _.toArray(dataStream.video).length;
+    var video_arr = _.toArray(dataStream.video);
     //console.log(video_resource_num);
 
     //Count number of video resource urls::
     var pdf_resource_num = _.toArray(dataStream.pdf).length;
+    var pdf_arr = _.toArray(dataStream.pdf);
     //console.log(pdf_resource_num);
 
     var currentConfig = tableify(dataStream);
@@ -84,11 +86,11 @@ app.post('/buildform',function(req,res){
     }
 
     for(i=1;i<=video_resource_num;i++){
-        videoFieldHtml = videoFieldHtml + '<div class="form-group"><label class="col-md-4 control-label" for="video[video'+i+'_url]">Video '+i+' URL</label><div class="col-md-4"><input id="video[video'+i+'_url]" name="video[video'+i+'_url]" type="text" placeholder="" class="form-control input-md"></div></div>';
+        videoFieldHtml = videoFieldHtml + '<div class="form-group"><label class="col-md-4 control-label" for="video[video'+i+'_url]">Video '+i+' URL</label><div class="col-md-4"><input id="video[video'+i+'_url]" name="video[video'+i+'_url]" type="text" placeholder="'+video_arr[i-1]+'" class="form-control input-md"></div></div>';
     }
 
     for(i=1;i<=pdf_resource_num;i++){
-        pdfFieldHtml = pdfFieldHtml + '<div class="form-group"><label class="col-md-4 control-label" for="pdf[pdf'+i+'_url]">PDF '+i+' URL</label><div class="col-md-4"><input id="pdf[pdf'+i+'_url]" name="pdf[pdf'+i+'_url]" type="text" placeholder="" class="form-control input-md"></div></div>';
+        pdfFieldHtml = pdfFieldHtml + '<div class="form-group"><label class="col-md-4 control-label" for="pdf[pdf'+i+'_url]">PDF '+i+' URL</label><div class="col-md-4"><input id="pdf[pdf'+i+'_url]" name="pdf[pdf'+i+'_url]" type="text" placeholder="'+pdf_arr[i-1]+'" class="form-control input-md"></div></div>';
     }
 
 	res.send(htmlHead+tooltipFieldHtml+videoFieldHtml+pdfFieldHtml+hidden+htmlTail+'<center>'+currentConfig+'</center>');
