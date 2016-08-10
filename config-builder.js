@@ -80,7 +80,7 @@ app.post('/buildform',function(req,res){
 
 
     for(i=1;i<=tooltip_num;i++){
-        tooltipFieldHtml = tooltipFieldHtml + '<div class="form-group"><label class="col-md-4 control-label" for="tooltips[tooltip'+i+'_url]">Tooltip '+i+' URL</label><div class="col-md-4"><input id="tooltips[tooltip'+i+'_url]" name="tooltips[tooltip'+i+'_url]" type="text" placeholder="" class="form-control input-md"></div></div>';
+        tooltipFieldHtml = tooltipFieldHtml + '<div class="form-group"><label class="col-md-4 control-label" for="tooltips[tooltip'+i+'_url]">Tooltip '+i+' URL</label><div class="col-md-4"><input id="tooltips[tooltip'+i+'_url]" name="tooltips[tooltip'+i+'_url]" type="text" placeholder="'+tooltip_arr[i-1]+'" class="form-control input-md"></div></div>';
     }
 
     for(i=1;i<=video_resource_num;i++){
