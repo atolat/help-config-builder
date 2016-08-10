@@ -49,6 +49,8 @@ app.post('/buildform',function(req,res){
 	
 	//Count number of tooltip urls::
     var tooltip_num = _.toArray(dataStream.tooltips).length;
+    var tooltip_arr = _.toArray(dataStream.tooltips);
+    console.log(tooltip_arr);
 
     //	myApp.toolnum = tooltip_num;
     console.log(tooltip_num);
