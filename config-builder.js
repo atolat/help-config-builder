@@ -77,6 +77,10 @@ app.post('/buildform',function(req,res){
 
     var pdfFieldHtml = '';
 
+    var tooltipBuff = '';
+    var videoBuff = '';
+    var pdfBuff = '';
+
     var hidden = '<div class="form-group"><div class="col-md-4"><input  id="bucket[name]" type = "hidden" name="bucket[name]" type="text" value = "'+dataStream.bucket_name+'" placeholder="" class="form-control input-md"></div></div>';
 
     var htmlTail = '<div class="form-group"><label class="col-md-4 control-label" for="singlebutton"></label><div class="col-md-4"><button type = "submit" value = "submit" id="singlebutton" name="singlebutton" class="btn btn-primary">Update Flow</button></div></div></fieldset></form></body>';
@@ -85,6 +89,7 @@ app.post('/buildform',function(req,res){
 
     for(i=1;i<=tooltip_num;i++){
         tooltipFieldHtml = tooltipFieldHtml + '<div class="form-group"><label class="col-md-4 control-label" for="tooltips[tooltip'+i+'_url]">Tooltip '+i+' URL</label><div class="col-md-4"><input id="tooltips[tooltip'+i+'_url]" name="tooltips[tooltip'+i+'_url]" type="text" placeholder="'+tooltip_arr[i-1]+'" class="form-control input-md"></div></div>';
+        tooltipBuff = tooltipBuff + '<li>'+tooltip_arr[i-1]+'</li>';
     }
 
     for(i=1;i<=video_resource_num;i++){
@@ -95,7 +100,7 @@ app.post('/buildform',function(req,res){
         pdfFieldHtml = pdfFieldHtml + '<div class="form-group"><label class="col-md-4 control-label" for="pdf[pdf'+i+'_url]">PDF '+i+' URL</label><div class="col-md-4"><input id="pdf[pdf'+i+'_url]" name="pdf[pdf'+i+'_url]" type="text" placeholder="'+pdf_arr[i-1]+'" class="form-control input-md"></div></div>';
     }
 
-	res.send(htmlHead+tooltipFieldHtml+videoFieldHtml+pdfFieldHtml+hidden+htmlTail+'<center>'+tooltipConfig+videoConfig+pdfConfig+'</center>');
+	res.send(htmlHead+tooltipFieldHtml+videoFieldHtml+pdfFieldHtml+hidden+htmlTail+'<center><ul>'+tooltipBuff+'</ul></center>');
 });
 
 app.post("/updatejson", function (req, res) {
