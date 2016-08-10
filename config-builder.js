@@ -45,7 +45,7 @@ app.post('/buildform',function(req,res){
 	// //console.log(dataStream.tooltips);
 	var dataStream = JSON.parse(req.body.bucket.data);
 
-	console.log(dataStream);
+	//console.log(dataStream);
 	
 	//Count number of tooltip urls::
     var tooltip_num = _.toArray(dataStream.tooltips).length;
@@ -53,15 +53,15 @@ app.post('/buildform',function(req,res){
     console.log(tooltip_arr);
 
     //	myApp.toolnum = tooltip_num;
-    console.log(tooltip_num);
+    //console.log(tooltip_num);
 
     //Count number of video resource urls::
     var video_resource_num = _.toArray(dataStream.video).length;
-    console.log(video_resource_num);
+    //console.log(video_resource_num);
 
     //Count number of video resource urls::
     var pdf_resource_num = _.toArray(dataStream.pdf).length;
-    console.log(pdf_resource_num);
+    //console.log(pdf_resource_num);
 
     var currentConfig = tableify(dataStream);
 
@@ -96,7 +96,7 @@ app.post('/buildform',function(req,res){
 
 app.post("/updatejson", function (req, res) {
     
-  console.log(req.body.bucket.name);
+  //console.log(req.body.bucket.name);
 
   //Count number of tooltip urls::
     var tooltip_arr = _.toArray(req.body.tooltips);
@@ -107,7 +107,7 @@ app.post("/updatejson", function (req, res) {
 
 
 
-    console.log(jsonSchema);
+    //console.log(jsonSchema);
 
   //Create the S3 client
     var client = knox.createClient({
