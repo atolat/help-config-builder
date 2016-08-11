@@ -146,7 +146,7 @@ app.post("/updatejson", function(req, res) {
 
 
 
-
+    res.send('<script>window.alert(Flow Successfully Updated! You will now be redirected to the login page.);</script>')
     res.redirect('https://help-config-builder.herokuapp.com');
 
 });
