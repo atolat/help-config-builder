@@ -147,7 +147,7 @@ app.post("/updatejson", function(req, res) {
 
 
 
-    res.redirect('/login.html');
+    res.redirect('https://help-config-builder.herokuapp.com/login.html');
 
 });
 
