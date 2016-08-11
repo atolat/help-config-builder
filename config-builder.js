@@ -146,8 +146,8 @@ app.post("/updatejson", function(req, res) {
 
 
 
-    res.send('<script>window.alert(Flow Successfully Updated! You will now be redirected to the login page.);</script>')
-    res.redirect('https://help-config-builder.herokuapp.com');
+    res.send('<script>window.alert("Flow Successfully Updated! You will now be redirected to the login page.");document.location.replace("https://help-config-builder.herokuapp.com");</script>')
+    //res.redirect('https://help-config-builder.herokuapp.com');
 
 });
 
